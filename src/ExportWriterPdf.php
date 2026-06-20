@@ -8,7 +8,7 @@
 
 namespace kartik\export;
 
-use kartik\mpdf\Pdf;
+use Mpdf\Mpdf as MpdfLib;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf;
 
 /**
@@ -25,7 +25,7 @@ class ExportWriterPdf extends Mpdf
     public $filename = '';
 
     /**
-     * @var array kartik\mpdf\Pdf component configuration settings
+     * @var array mpdf/mpdf configuration settings
      */
     public $pdfConfig = [];
 
@@ -38,8 +38,7 @@ class ExportWriterPdf extends Mpdf
             unset($config['tempDir']);
         }
         $config = array_replace_recursive($config, $this->pdfConfig);
-        $pdf = new Pdf($config);
 
-        return $pdf->getApi();
+        return new MpdfLib($config);
     }
 }
