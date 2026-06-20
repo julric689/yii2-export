@@ -853,7 +853,7 @@ class ExportMenu extends GridView
         if (empty($this->exportRequestParam)) {
             $this->exportRequestParam = 'exportFull_'.$this->options['id'];
         }
-        $path = '@vendor/kartik-v/yii2-export/src/views';
+        $path = '@vendor/julric689/yii2-export/src/views';
         if (!isset($this->exportColumnsView)) {
             $this->exportColumnsView = "{$path}/_columns";
         }
